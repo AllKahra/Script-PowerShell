@@ -1,12 +1,12 @@
 # Definir o período de inatividade (em dias)
-$minutesInactive = 1
+$DaysInactive = 1
 $DateThreshold = (Get-Date).AddDays(-$DaysInactive)
 
-# Obter usuários inativos há mais de 1 dias
+# Obter usuários inativos há mais de 1 dia
 $InactiveUsers = Get-ADUser -Filter {LastLogonDate -lt $DateThreshold -and Enabled -eq
 $true} -Properties LastLogonDate
 
-# Obter computadores inativos há mais de 1 dias
+# Obter computadores inativos há mais de 1 dia
 $InactiveComputers = Get-ADComputer -Filter {LastLogonDate -lt $DateThreshold} -
 Properties LastLogonDate
 
